@@ -89,5 +89,5 @@ fn err(formula: &str, msg: &str) -> String {
 }
 
 fn main() {
-    ["AB&!", "AB|!", "AB>", "AB=", "AB|C&!", "AB|C&"].iter().for_each(|&f| println!("{}", negation_normal_form(f)));
+    ["AB&!", "AB|!", "AB>", "AB=", "AB|C&!"].iter().for_each(|&f| println!("{}", negation_normal_form(f)));
 }

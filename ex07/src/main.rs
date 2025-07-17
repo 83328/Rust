@@ -35,7 +35,7 @@ fn sat(formula: &str) -> bool {
 
 fn eval_formula(formula: &str, assignment: &HashMap<char, bool>) -> bool {
     let mut stack: Vec<bool> = Vec::new();
-    
+
     for ch in formula.chars() {
         match ch {
             'A'..='Z' => {

@@ -6,10 +6,11 @@ This README covers **Exercise 04 - Truth Tables**, printing a truth table for an
 
 Generate a truth table for an RPN Boolean expression with `A`, `B`, `C`, returning `true` if successful, `false` for invalid formulas with an error message.
 
+A truth table lists all combinations of variable values and their corresponding expression results. Every line stands for a unique combination of `A`, `B`, and `C` values, showing how the expression evaluates.
+
 - **Function Prototype**: `fn print_truth_table(formula: &str) -> bool`
 - **Algorithm**: Evaluate RPN formula using a stack, print table for all `A`, `B`, `C` combinations (8 rows).
 - **Complexity**: Time O(4n), Space O(n), where `n` is the formula length.
-
 
 ### Algorithm Explanation
 - **RPN Evaluation**: Use a `Vec<u32>` stack to process postfix notation:

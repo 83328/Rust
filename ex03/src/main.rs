@@ -1,5 +1,5 @@
 // Evaluate a Boolean expression in Reverse Polish Notation (RPN)
-// with 0, 1 and operators &, |, >, =
+// with 0, 1 and operators &, |, >, =, !, ^
 fn eval_formula(formula: &str) -> bool {
     let mut stack: Vec<bool> = Vec::new();
     
@@ -7,6 +7,14 @@ fn eval_formula(formula: &str) -> bool {
         match ch {
             '0' => stack.push(false),
             '1' => stack.push(true),
+            '!' => {
+                if stack.is_empty() {
+                    eprintln!("Error: Not enough operands for ! in '{}'", formula);
+                    return false;
+                }
+                let a = stack.pop().unwrap();
+                stack.push(!a);
+            }
             '&' => {
                 if stack.len() < 2 {
                     eprintln!("Error: Not enough operands for & in '{}'", formula);
@@ -24,6 +32,16 @@ fn eval_formula(formula: &str) -> bool {
                 let b = stack.pop().unwrap();
                 let a = stack.pop().unwrap();
                 stack.push(a || b);
+            }
+            '^' => {
+                if stack.len() < 2 {
+                    eprintln!("Error: Not enough operands for ^ in '{}'", formula);
+                    return false;
+                }
+                let b = stack.pop().unwrap();
+                let a = stack.pop().unwrap();
+                // XOR: true when operands are different
+                stack.push(a != b);
             }
             '>' => {
                 if stack.len() < 2 {
@@ -71,6 +89,11 @@ fn main() {
         ("11>", true),     // 1 > 1 = !1 OR 1 = false OR true = true
         ("10=", false),    // 1 = 0 = false (not equivalent)
         ("1011||=", true), // 1 OR 0 = true, 1 OR 1 = true, true = true = true
+        ("1!", false),     // NOT 1 = false
+        ("0!", true),      // NOT 0 = true  
+        ("10^", true),     // 1 XOR 0 = true (different values)
+        ("11^", false),    // 1 XOR 1 = false (same values)
+        ("00^", false),    // 0 XOR 0 = false (same values)
     ];
 
     for (formula, expected) in tests {

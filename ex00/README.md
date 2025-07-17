@@ -56,12 +56,7 @@ You need Rust installed. Rust is a compiled language like C, but it uses **Cargo
      edition = "2021"
      ```
 
-2. **Add the Adder Code**:
-   Replace `src/main.rs` with the following implementation.
-
 ## Implementation
-
-Below is the complete code for the Adder exercise, with comments explaining the logic for C programmers.
 
 ```rust
 // Function to add two u32 numbers using bitwise operations, like `unsigned int adder(unsigned int a, unsigned int b)` in C
@@ -181,19 +176,3 @@ Rust shares similarities with C but emphasizes safety and modern features. Here 
 - **Compile Errors**: Rust’s errors are detailed. Example: Forgetting `mut` causes “cannot assign to immutable variable.”
 - **Test Failures**: Debug bitwise logic with small inputs (e.g., `1 + 1`). Use `println!` for debugging.
 - **C Habits**: Avoid C-style memory management (`malloc`/`free`); Rust handles this automatically.
-
-## Next Steps
-
-1. **Test Thoroughly**: Add test cases in `main` (e.g., large numbers, `u32::MAX`).
-2. **Peer Review**: Include comments explaining bitwise logic and complexity (time: O(log n), space: O(1)).
-3. **Learn More Rust**: Check [doc.rust-lang.org](https://doc.rust-lang.org) or `rustup doc`.
-4. **Community Help**: Use Rust’s Discord or Stack Overflow, like C forums.
-5. **Next Exercise**: Move to Exercise 01 (Multiplier), building on this bitwise approach.
-
-## Submission
-
-- Place `src/main.rs` in your git repository.
-- Double-check file names for peer evaluation.
-- Run `cargo test` if you add tests (not required here).
-
-Run `cargo run` to see Adder in action.

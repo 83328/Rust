@@ -4,7 +4,7 @@ This README covers **Exercise 06 - Conjunctive Normal Form**, converting an RPN 
 
 ## Project Overview
 
-Convert an RPN Boolean expression to Conjunctive Normal Form (CNF) in RPN, returning a `String`. Invalid formulas return an empty string.
+Convert an RPN Boolean expression to Conjunctive Normal Form (CNF) in RPN, returning a `String`. Invalid formulas return an empty string. The Conjunctive Normal Form (CNF) means that in the output, every negation must be located right after a variable and every conjunction must be located at the end of the formula.
 
 - **Function Prototype**: `fn conjunctive_normal_form(formula: &str) -> String`
 - **Algorithm**: Convert to NNF, then distribute `|` over `&` for CNF.
